@@ -203,7 +203,7 @@ export default class DrawerView extends React.PureComponent {
   render() {
     const { navigation } = this.props;
     const activeKey = navigation.state.routes[navigation.state.index].key;
-    const { drawerLockMode } = this.props.descriptors[activeKey].options;
+    const { drawerLockMode, frontDrawerOffset } = this.props.descriptors[activeKey].options;
 
     return (
       <DrawerLayout
@@ -215,6 +215,11 @@ export default class DrawerView extends React.PureComponent {
           drawerLockMode ||
           (this.props.screenProps && this.props.screenProps.drawerLockMode) ||
           this.props.navigationConfig.drawerLockMode
+        }
+        frontDrawerOffset={
+          frontDrawerOffset ||
+          (this.props.screenProps && this.props.screenProps.frontDrawerOffset) ||
+          this.props.navigationConfig.frontDrawerOffset
         }
         drawerBackgroundColor={
           this.props.navigationConfig.drawerBackgroundColor
